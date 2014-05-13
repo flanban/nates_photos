@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0.beta1'
 
-gem 'sqlite3'
+gem 'pg'
 
 gem 'haml-rails', '>= 0.3.4', :group => :development
 gem 'html2haml'
@@ -38,3 +38,6 @@ gem 'jbuilder', '~> 1.0.1'
 
 # To use debugger
 # gem 'debugger'
+
+gem 'rails_12factor', group: :production
+
