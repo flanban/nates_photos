@@ -1,8 +1,8 @@
 html { 
-  background-image: url(image-path('photos-bg-1.jpg'));
+  background-image: asset_url('photos-bg-1.jpg');
   background-repeat:no-repeat;
   background-position: center center;
-  background-size:fixed;
+  background-attachment:fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -14,9 +14,7 @@ html {
   position:relative;
   top:0;
   left:0;
-  background:url(photos-bg-1.jpg) center;
-  background-size:cover;
-  background-attachment:fixed;
+
   > li {
     float:left;
     > a {
