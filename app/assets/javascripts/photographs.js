@@ -1,3 +1,5 @@
+/*
+
 var url = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getList&api_key=efeecfff9bc2f0f26ca576d1293ce4aa&user_id=24881537%40N02&format=json&nojsoncallback=1&auth_token=72157644240953428-3599714826103e5e&api_sig=d45db628b9143277c4b272082cb95f45'
 
 var flickerAPI = url;
@@ -21,3 +23,6 @@ var flickerAPI = url;
       $("#images").append(list);
       
     });
+    
+    
+*/
