@@ -1,5 +1,5 @@
 html { 
-  background-image: asset-data-url('photos-bg-1.jpg');
+  background-image: url(image-path('photos-bg-1.jpg'));
   background-repeat:no-repeat;
   background-position: center center;
   background-size:fixed;
