@@ -8,6 +8,10 @@ default: &default
   username:
   password:
 
+production:
+  <<: *default
+  database: nates_photos_production
+
 development:
   <<: *default
   database: nates_photos_development
