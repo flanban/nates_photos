@@ -1,6 +1,8 @@
 html { 
-  background: url(images/bg.jpg) no-repeat center center fixed; 
-  background:url(photos-bg-1.jpg) no-repeat center center fixed;
+  background-image: asset-data-url('photos-bg-1.jpg');
+  background-repeat:no-repeat;
+  background-position: center center;
+  background-size:fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
