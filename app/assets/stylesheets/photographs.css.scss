@@ -1,12 +1,7 @@
 html { 
-  background-image: asset_url('photos-bg-1.jpg');
-  background-repeat:no-repeat;
-  background-position: center center;
-  background-attachment:fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
+  background-image: asset_url('noise.gif');
+  background-color:#888;
+
 }
 #photo-sets {
   width:100%;
@@ -35,19 +30,4 @@ html {
 }
 
 //set grid
-#photo-sets li:nth-of-type(2) {
-  width:32%;
-}
-#photo-sets li:nth-of-type(3) {
-  width:68%;
-}
 
-#photo-sets li:nth-of-type(6) {
-  float:right;
-}
-#photo-sets li:nth-of-type(5),#photo-sets li:nth-of-type(6),#photo-sets li:nth-of-type(7) {
-  width:50%;
-}
-#photo-sets li:nth-of-type(9),#photo-sets li:nth-of-type(10),#photo-sets li:nth-of-type(11) {
-  width:33.3333%;
-}
