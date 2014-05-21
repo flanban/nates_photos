@@ -1,7 +1,8 @@
 #primary-menu
-  %h2 Nate McGarigal
+  %h2 
+    =link_to 'Nate McGarigal', root_path
   %ul
     %li 
-      =link_to 'Photography', photographs_url, :class => 'active'
+      =link_to 'Photography', photography_path, :class => 'nav-link'
     %li
-      =link_to 'Cinematography', videos_url
+      =link_to 'Cinematography', cinematography_path, :class => 'nav-link'

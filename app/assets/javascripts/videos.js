@@ -39,4 +39,9 @@ function showThumbs(videos) {
 }
 
 // Call our init function when the page loads
-window.onload = init;
+jQuery(document).ready(function($) {
+    if($("#cinematography-page").is(":visible")) {
+      window.onload = init;
+      
+    } 
+});

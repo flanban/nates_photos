@@ -1,0 +1,33 @@
+#detail-page-menu {
+  padding:14px;
+  height:44px;
+  h2 {
+    font-family:'CubanoRegular';
+    font-size:14px;
+    letter-spacing:1px;
+    color:rgba(255,255,255,0.9);
+    display:inline-block;
+    a {
+      color:rgba(255,255,255,0.8);
+    }
+  }
+  .detail-type {
+    letter-spacing:1px;
+    display:inline-block;
+    font-family:'Lato';
+    font-weight:300;
+    font-size:14px;
+    color:rgba(255,255,255,0.8);
+  }
+  .detail-title {
+    font-family:'Lato';
+    font-weight:300;
+    text-align:center;
+    width:60%;
+  }
+  .close-button {
+    position:absolute;
+    right:12px;
+    top:7px;
+  }
+}

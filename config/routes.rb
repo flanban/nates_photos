@@ -1,11 +1,12 @@
 NatesPhotos::Application.routes.draw do
 
-  root :to => "welcome#index"
+  get "static_pages/index" => 'static_pages#index'
+  get "static_pages/photography" => 'static_pages#photography', :path => '/photography', as: 'photography'
+  get "static_pages/set-page" => 'static_pages#set_page', :path => 'photography/set-page', as: 'set_page'
+  get "static_pages/cinematography" => 'static_pages#cinematography', :path => '/cinematography', as: 'cinematography'
+  get "static_pages/video-page" => 'static_pages#video_page', :path => 'cinematogrpahy/video-page', as: 'video_page'
+  root :to => "static_pages#index"
 
-  get "welcome/index"
-  
-  resources :photographs
-  resources :videos, :path => "cinematography"
   
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
