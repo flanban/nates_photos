@@ -64,7 +64,7 @@
 
 	position: absolute;	
 	cursor: pointer;	
-	background: url('rs-default.png');
+	background: asset-url('rs-default.png');
 
 	background-color: #000;
 	background-color: rgba(0,0,0,0.75);
