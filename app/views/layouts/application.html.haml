@@ -11,7 +11,7 @@
   %body
     - if on_detail_page?
       = render "shared/detail_page_menu"
-      #detail-page
+      #detail-page.clearfix
         = yield
     - else
       = render "shared/primary_menu"
