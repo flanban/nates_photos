@@ -8,7 +8,7 @@ $(function() {
 
   //resize event
   $(window).resize(function(){
-    setDetailPageHeight();
+   // setDetailPageHeight();
   });
 
 });
