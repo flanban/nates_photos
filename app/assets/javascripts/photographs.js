@@ -26,3 +26,17 @@ var flickerAPI = url;
     
     
 */
+function enter_full_screen(){
+    elem    = $('#detail-page')[0];
+    calls   = ['requestFullScreen','webkitRequestFullScreen','mozRequestFullScreen'];
+
+    for(var i = 0; i < calls.length; i++){
+        if(elem[calls[i]]){
+            elem[calls[i]]();
+            return;
+        }
+    }
+}
+$( ".fullscreen" ).click(function() {
+  enter_full_screen();
+});
