@@ -1,14 +1,17 @@
 ul#thumbs {
   li {
-
+    margin-bottom:24px;
     > * {
-
+      float:left;
     }
     img {
+      width:60%;
     }
-    > div {
-
+    > div {position:relative;
+      width:40%;
       a {
+        position:relative;
+        top:0;
         font-family:'CubanoRegular';
         text-align:center;
         font-size:18px;
