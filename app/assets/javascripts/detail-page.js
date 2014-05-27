@@ -4,11 +4,12 @@ function setDetailPageHeight() {
   $('#detail-page').height(detailPageHeightWithMenu)
 }
 $(function() {
-  setDetailPageHeight();
+ // setDetailPageHeight();
 
-  //resize event
-  $(window).resize(function(){
-   // setDetailPageHeight();
-  });
 
+
+});
+//resize event
+$(window).resize(function(){
+  //setDetailPageHeight();
 });

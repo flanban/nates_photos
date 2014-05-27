@@ -1,31 +1,35 @@
-/*
+$(document).ready(function(){
+  //var data={"firstName":"Ray"};
+  //$("#photos").append('<li>' + data.firstName + '</li>');
 
-var url = 'https://api.flickr.com/services/rest/?method=flickr.photosets.getList&api_key=efeecfff9bc2f0f26ca576d1293ce4aa&user_id=24881537%40N02&format=json&nojsoncallback=1&auth_token=72157644240953428-3599714826103e5e&api_sig=d45db628b9143277c4b272082cb95f45'
+  var flickrCollectionsUrl = ' https://api.flickr.com/services/rest/?method=flickr.collections.getTree&api_key=bbb92039bfc70cb6ea719c6bfd7688a0&collection_id=72157644814677364&user_id=24881537%40N02&format=json&auth_token=72157644839406694-d3e4590fd83793b4&api_sig=df8fb0ab45266deb5de01727b88bb188'
+  
+  var sampleSetUrl = "https://api.flickr.com/services/rest/?method=flickr.photosets.getInfo&api_key=5646304a3f4a9cbac8549961222d1036&photoset_id=72157644866662373&format=json"
+  
+  $.ajax({
+      url: sampleSetUrl,
 
-var flickerAPI = url;
-  $.getJSON( flickerAPI, {
-    format: "json"
-  })
-    .done(function( data ) {
-      console.log(JSON.stringify(url));
-      var list = $("<ul></ul>");
-      
-      $.each( data.photosets.photoset, function( i, item ) {
-        var link = $("<a/>").attr("title", item.description._content)
-                    .attr("href", "http://www.flickr.com/photos/mjryall/sets/" + item.id)
-                    .text(item.title._content);
-        var li = $("<li/>").append(link).append(" (" + item.photos + ")");
-                $(list).append(li);
-        if (i >= 11) {
-          return false
-        }
-      });
-      $("#images").append(list);
-      
-    });
-    
-    
-*/
+      // the name of the callback parameter, as specified by flickr
+      jsonpCallback: "jsonFlickrApi",
+
+      // tell jQuery we're expecting JSONP
+      dataType: "jsonp",
+
+      success: function(json) {
+//      console.dir(json.photoset.title._content);
+//        console.dir(json.collection.id);
+
+      },
+
+  });
+  
+});
+/// WHEN I LINK TO THE SPECIFIC SET PAGE: 
+///   first i need to create the set-page url out of the collectionTree data. Then I need to pass it, maybe in a hidden form, to the set-page controller params in an instance variable. Lastly I need to store that instance variable in a my js url vairiable for the flickr api call on the set-page script.
+
+
+
+//  full screen mode 
 function enter_full_screen(){
     elem    = $('#detail-page')[0];
     calls   = ['requestFullScreen','webkitRequestFullScreen','mozRequestFullScreen'];

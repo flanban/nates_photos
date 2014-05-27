@@ -1,5 +1,7 @@
 - content_for :title, 'photographs'
 
+%ul#photos
+
 %ul#photo-sets.clearfix
   %li
     =link_to(image_tag('tmp.jpg'), set_page_path)
@@ -25,7 +27,7 @@
     =link_to(image_tag('tmp.jpg'), set_page_path)
   %li
     =link_to(image_tag('tmp.jpg'), set_page_path)
-    
-  
-%footer.clearfix
-  %p footer
+
+-#  
+  %footer.clearfix
+    %p footer

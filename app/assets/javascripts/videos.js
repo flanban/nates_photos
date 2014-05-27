@@ -24,19 +24,21 @@ function showThumbs(videos) {
   
   for (var i = 0; i < videos.length; i++) {
     var thumb = document.createElement('img');
-    thumb.setAttribute('src', videos[i].thumbnail_medium);
+    thumb.setAttribute('src', videos[i].thumbnail_large);
     thumb.setAttribute('alt', videos[i].title);
     thumb.setAttribute('title', videos[i].title);
     
     var a = document.createElement('a');
     a.setAttribute('href', videos[i].url);
     a.appendChild(document.createTextNode(videos[i].title));
+
+    var textHolder = document.createElement('div');
+    textHolder.appendChild(a);
     
-    var p = document.createElement('p');
-    p.appendChild(thumb);
-    p.appendChild(document.createElement('br'));
-    p.appendChild(a);
-    thumbs.appendChild(p);
+    var li = document.createElement('li');
+    li.appendChild(thumb);
+    li.appendChild(textHolder);
+    thumbs.appendChild(li);
   }
 }
 
