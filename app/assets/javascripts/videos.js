@@ -1,11 +1,13 @@
-// vimeo username
-var vimeoUserName = 'user2488391';
+// Change this to your username to load in your clips
+//var vimeoUserName = 'user2488391';
+var webAlbum = '2887945';
+
 
 // Tell Vimeo what function to call
 var callback = 'showThumbs';
 
 // Set up the URLs
-var url = 'http://vimeo.com/api/v2/' + vimeoUserName + '/videos.json?callback=' + callback;
+var url = 'http://vimeo.com/api/v2/album/' + webAlbum + '/videos.json?callback=' + callback;
 
 // This function loads the data from Vimeo
 function init() {
@@ -39,9 +41,4 @@ function showThumbs(videos) {
 }
 
 // Call our init function when the page loads
-jQuery(document).ready(function($) {
-    if($("#cinematography-page").is(":visible")) {
-      window.onload = init;
-      
-    } 
-});
+window.onload = init;
