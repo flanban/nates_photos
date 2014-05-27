@@ -17,7 +17,7 @@ $(document).ready(function(){
 
       success: function(json) {
 //      console.dir(json.photoset.title._content);
-//        console.dir(json.collection.id);
+        console.dir(json.collection.id);
 
       },
 
