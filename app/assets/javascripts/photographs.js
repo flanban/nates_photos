@@ -1,27 +1,26 @@
 $(document).ready(function(){
-  //var data={"firstName":"Ray"};
-  //$("#photos").append('<li>' + data.firstName + '</li>');
 
-  var flickrCollectionsUrl = ' https://api.flickr.com/services/rest/?method=flickr.collections.getTree&api_key=c46c24442f27e0dfb28c6a6982ca6b4b&collection_id=72157644814677364&user_id=24881537%40N02&format=json'
   
-  var sampleSetUrl = "https://api.flickr.com/services/rest/?method=flickr.photosets.getInfo&api_key=5646304a3f4a9cbac8549961222d1036&photoset_id=72157644866662373&format=json"
-  
-  $.ajax({
-      url: flickrCollectionsUrl,
+  var apiKey = 'c46c24442f27e0dfb28c6a6982ca6b4b'
+  var collectionID = '72157644814677364'
+  var userId = '24881537@N02'
+  var page = 1
+  var perPage = 12
+  var apiCall = "https://api.flickr.com/services/rest/?format=json&method=flickr.photosets.getList&api_key=" + apiKey + "&page=" + page  + "&per_page=" + perPage  +  "&user_id=" + userId  + "&jsoncallback=?";
 
-      // the name of the callback parameter, as specified by flickr
-      jsonpCallback: "jsonFlickrApi",
-
-      // tell jQuery we're expecting JSONP
-      dataType: "jsonp",
-
-      success: function(json) {
-//      console.dir(json.photoset.title._content);
-        console.dir(json.collection.id);
-
-      },
-
+  $.getJSON(apiCall, function(data){
+    $.each(data.photosets.photoset, function(i, set){
+      var primaryPhotoUrl = "https://farm" + this.farm + ".staticflickr.com/" + this.server + "/" + this.primary + "_" + this.secret + ".jpg"
+      var html = '<li class="photo-set"><h2>'+ set.title._content +'</h2><a href="#"><img class="set-cover" src="' + primaryPhotoUrl + '"/></a></li>'
+      $('#photo-sets').append(html);
+      
+      
+      
+      
+    });
   });
+  
+ 
   
 });
 
