@@ -10,6 +10,7 @@ $(document).ready(function(){
 
   $.ajax({
       url: apiCall,
+      headers: {'X-Requested-With': 'XMLHttpRequest'},
       type: "GET",
       dataType: 'jsonp',
       success: function (data) {
