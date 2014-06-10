@@ -8,20 +8,20 @@ $(document).ready(function(){
   var perPage = 12
   var apiCall = "https://api.flickr.com/services/rest/?format=json&method=flickr.photosets.getList&api_key=" + apiKey + "&page=" + page  + "&per_page=" + perPage  +  "&user_id=" + userId  + "&jsoncallback=?";
 
-  $.getJSON(apiCall, function(data){
-    $.each(data.photosets.photoset, function(i, set){
-      var primaryPhotoUrl = "https://farm" + this.farm + ".staticflickr.com/" + this.server + "/" + this.primary + "_" + this.secret + ".jpg"
-      var html = '<li class="photo-set"><h2>'+ set.title._content +'</h2><a href="#"><img class="set-cover" src="' + primaryPhotoUrl + '"/></a></li>'
-      $('#photo-sets').append(html);
-      
-      
-      
-      
-    });
+  $.ajax({
+      url: apiCall,
+      type: "GET",
+      dataType: 'jsonp',
+      success: function (data) {
+          $.each(data.photosets.photoset, function (i, set) {
+            var primaryPhotoUrl = "https://farm" + this.farm + ".staticflickr.com/" + this.server + "/" + this.primary + "_" + this.secret + ".jpg"
+            var html = '<li class="photo-set"><h2>'+ set.title._content +'</h2><a href="#"><img class="set-cover" src="' + primaryPhotoUrl + '"/></a></li>'
+            $('#photo-sets').append(html);
+          });
+      }
   });
-  
- 
-  
+
+
 });
 
 /// WHEN I LINK TO THE SPECIFIC SET PAGE: 
