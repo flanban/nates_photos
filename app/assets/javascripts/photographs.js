@@ -14,7 +14,7 @@ $(document).ready(function(){
       dataType: 'jsonp',
       success: function (data) {
           $.each(data.photosets.photoset, function (i, set) {
-            var primaryPhotoUrl = "https://farm" + this.farm + ".staticflickr.com/" + this.server + "/" + this.primary + "_" + this.secret + ".jpg"
+            var primaryPhotoUrl = "https://farm" + this.farm + ".staticflickr.com/" + this.server + "/" + this.primary + "_" + this.secret + "_b.jpg"
             var html = '<li class="photo-set"><h2>'+ set.title._content +'</h2><a href="#"><img class="set-cover" src="' + primaryPhotoUrl + '"/></a></li>'
             $('#photo-sets').append(html);
           });
