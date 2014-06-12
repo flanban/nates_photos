@@ -3,7 +3,7 @@ $(document).ready(function(){
   
   var apiKey = 'c46c24442f27e0dfb28c6a6982ca6b4b'
   var collectionID = '72157644814677364'
-  var userId = '24881537@N02'
+  var userId = '124300310@N08'
   var page = 1
   var perPage = 12
   var apiCall = "https://api.flickr.com/services/rest/?format=json&method=flickr.photosets.getList&api_key=" + apiKey + "&page=" + page  + "&per_page=" + perPage  +  "&user_id=" + userId  + "&jsoncallback=?";
