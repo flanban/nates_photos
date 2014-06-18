@@ -36,6 +36,7 @@ function showThumbs(videos) {
     textHolder.appendChild(a);
     
     var li = document.createElement('li');
+    li.className = li.className + "clearfix"
     li.appendChild(thumb);
     li.appendChild(textHolder);
     thumbs.appendChild(li);

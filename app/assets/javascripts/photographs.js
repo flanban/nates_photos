@@ -1,6 +1,26 @@
+
+function getSet() {
+  $( ".photo-set" ).click(function() {
+    var apiKey = 'c46c24442f27e0dfb28c6a6982ca6b4b'
+    var userId = '124300310@N08'
+    var setId = $(this).attr('data-photo-set-id')
+    var apiCall = "https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key="+apiKey+"&photoset_id="+setId+"&user_id="+userId+"&format=json";
+    $.ajax({
+        url: apiCall,
+        type: "GET",
+        dataType: 'jsonp',
+        jsonp: 'jsoncallback',
+        success: function (data) {
+            $.each(data.photoset.photo, function (i, set) {
+              alert(this.id)
+            });
+        }
+    });
+  });
+}
+
 $(document).ready(function(){
 
-  
   var apiKey = 'c46c24442f27e0dfb28c6a6982ca6b4b'
   var collectionID = '72157644814677364'
   var userId = '124300310@N08'
@@ -15,11 +35,13 @@ $(document).ready(function(){
       success: function (data) {
           $.each(data.photosets.photoset, function (i, set) {
             var primaryPhotoUrl = "https://farm" + this.farm + ".staticflickr.com/" + this.server + "/" + this.primary + "_" + this.secret + "_b.jpg"
-            var html = '<li class="photo-set"><h2>'+ set.title._content +'</h2><a href="#"><img class="set-cover" src="' + primaryPhotoUrl + '"/></a></li>'
+            var html = '<li data-photo-set-id="'+ set.id +'" class="photo-set"><h2>'+ set.title._content +'</h2><a href="#"><img class="set-cover" src="' + primaryPhotoUrl + '"/></a></li>'
             $('#photo-sets').append(html);
           });
+          getSet();
       }
   });
+
 
 
 });
@@ -44,3 +66,4 @@ function enter_full_screen(){
 $( ".fullscreen" ).click(function() {
   enter_full_screen();
 });
+

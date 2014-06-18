@@ -10,8 +10,8 @@
     = csrf_meta_tags
   %body
     - if on_detail_page?
-      = render "shared/detail_page_menu"
       #detail-page.clearfix
+        = render "shared/detail_page_menu"
         = yield
     - else
       = render "shared/primary_menu"
