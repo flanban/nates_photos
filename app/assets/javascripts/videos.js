@@ -27,6 +27,7 @@ function showThumbs(videos) {
     thumb.setAttribute('src', videos[i].thumbnail_large);
     thumb.setAttribute('alt', videos[i].title);
     thumb.setAttribute('title', videos[i].title);
+    thumb.setAttribute('data-video-id', videos[i].id);
     
     var a = document.createElement('a');
     a.setAttribute('href', videos[i].url);
