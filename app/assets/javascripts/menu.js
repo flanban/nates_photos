@@ -12,5 +12,5 @@ if (current_page.match(/photography/)) {
 } else { // don't mark any nav links as active
   $("#primary-menu li").removeClass('active');
 };
- 
+
 });

@@ -14,6 +14,7 @@ function getSet() {
             $.each(data.photoset.photo, function (i, set) {
               alert(this.id)
             });
+            
         }
     });
   });
@@ -21,6 +22,7 @@ function getSet() {
 
 $(document).ready(function(){
 
+  
   var apiKey = 'c46c24442f27e0dfb28c6a6982ca6b4b'
   var collectionID = '72157644814677364'
   var userId = '124300310@N08'
@@ -50,7 +52,6 @@ $(document).ready(function(){
 ///   first i need to create the set-page url out of the collectionTree data. Then I need to pass it, maybe in a hidden form, to the set-page controller params in an instance variable. Lastly I need to store that instance variable in a my js url vairiable for the flickr api call on the set-page script.
 
 
-
 //  full screen mode 
 function enter_full_screen(){
     elem    = $('#detail-page')[0];
@@ -66,4 +67,6 @@ function enter_full_screen(){
 $( ".fullscreen" ).click(function() {
   enter_full_screen();
 });
+
+
 
