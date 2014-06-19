@@ -20,9 +20,15 @@ ul#thumbs {
         text-align:center;
         font-size:14px;
         font-weight:200;
-        color:rgba(255,255,255,.8);
+        color:rgba(255,255,255,.7);
         margin:auto;
         padding:10px;
+        transition: color .25s ease-in-out;
+        -moz-transition: color .25s ease-in-out;
+        -webkit-transition: color .25s ease-in-out;
+        &:hover  {
+          color:#fff;
+        }
       }
     }
   }

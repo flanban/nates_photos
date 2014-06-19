@@ -5,7 +5,7 @@ function hideDetailPage() {
   jQuery('.photo-slider').royalSlider('destroy').empty()
 }
 function getSet() {
-  $('body').on('click', '.photo-set', function (e){
+  $('body').on('click', '.photo-set, .photo-set h2', function (e){
     e.preventDefault();
     $('html').addClass('gallery-active');
     $('#detail-page-menu h3').text($(this).attr('data-photo-set-name'))
@@ -37,7 +37,9 @@ function getSet() {
           var setSlider = $(".photo-slider").royalSlider({
               keyboardNavEnabled: true,
               controlNavigation: 'thumbnails',
-              imageScaleMode: "fit"
+              imageScaleMode: "fit",
+              imageScalePadding: 50,
+              slidesSpacing: 0
           });
           var sliderInstance = setSlider.data('royalSlider');
           var slideCountEl = $('<span class="photo-count"></span>').appendTo( $("#detail-page-menu > h3") );
