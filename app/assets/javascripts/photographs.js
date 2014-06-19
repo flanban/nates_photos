@@ -1,7 +1,8 @@
 
 function getSet() {
   $('body').on('click', '.photo-set', function (e){
-    e.preventDefault()
+    e.preventDefault();
+    $('html').addClass('gallery-active');
     var apiKey = 'c46c24442f27e0dfb28c6a6982ca6b4b'
     var userId = '124300310@N08'
     var setId = $(this).attr('data-photo-set-id')
@@ -16,6 +17,7 @@ function getSet() {
           
           $('body').on('click', '.close-button', function (e){
               e.preventDefault()
+              $('html').removeClass('gallery-active');
               $('.photo-slider').children().remove()
               $("#detail-page").fadeOut('fast')
               setSlider.destroy();

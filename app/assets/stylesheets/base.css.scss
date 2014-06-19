@@ -7,6 +7,11 @@
 html, body {
   height:100%;
 }
+html { 
+  background-image: asset_url('noise.gif');
+  background-color:#888;
+
+}
 
 .clearfix:after {
    content: " "; /* Older browser do not support empty content */
