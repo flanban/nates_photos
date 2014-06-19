@@ -1,6 +1,7 @@
 
 function getSet() {
-  $( ".photo-set" ).click(function() {
+  $('body').on('click', '.photo-set', function (e){
+    e.preventDefault()
     var apiKey = 'c46c24442f27e0dfb28c6a6982ca6b4b'
     var userId = '124300310@N08'
     var setId = $(this).attr('data-photo-set-id')
@@ -12,7 +13,19 @@ function getSet() {
         jsonp: 'jsoncallback',
         success: function (data) {
             $.each(data.photoset.photo, function (i, set) {
-              alert(this.id)
+              var secret = this.secret
+              var farmId = '2'
+              var serverId = this.server
+              var photoId = this.id
+              var photoUrl = 'https://farm' + farmId + '.staticflickr.com/' + serverId + '/' + photoId + '_' + secret + '.jpg'
+              var html = '<img class="set-photo" src="' + photoUrl + '"/>'
+              $('#detail-page').fadeIn();
+              $('.photo-slider').append(html);
+              $(".photo-slider").royalSlider({
+                  keyboardNavEnabled: true,
+                  controlNavigation: 'thumbnails'
+
+              });
             });
             
         }
@@ -33,6 +46,7 @@ $(document).ready(function(){
   $.ajax({
       url: apiCall,
       type: "GET",
+              async:false,
       dataType: 'jsonp',
       success: function (data) {
           $.each(data.photosets.photoset, function (i, set) {

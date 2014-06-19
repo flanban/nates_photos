@@ -2,9 +2,11 @@
 
 %ul#photo-sets.clearfix
 
-#detail-page
+
+#detail-page.hidden
   = render "shared/detail_page_menu"
   .photo-slider.rsDefault
+  -#
     =image_tag('tmp-1.gif', :class => "rsImg", :data_rsTmb => "tmp-1.gif")
     =image_tag('tmp-2.gif', :class => "rsImg", :data_rsTmb => "tmp-2.gif")
     =image_tag('tmp-3.gif', :class => "rsImg", :data_rsTmb => "tmp-3.gif")

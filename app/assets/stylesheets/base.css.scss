@@ -15,7 +15,9 @@ html, body {
    height: 0;
    clear: both;
 }
-
+.hidden {
+  display:none;
+}
 footer {
   clear:both;
   height:500px;
