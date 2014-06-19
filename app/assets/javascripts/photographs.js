@@ -1,4 +1,3 @@
-
 function getSet() {
   $('body').on('click', '.photo-set', function (e){
     e.preventDefault();
@@ -15,14 +14,12 @@ function getSet() {
         dataType: 'jsonp',
         jsonp: 'jsoncallback',
         success: function (data) {
-
-          
           $('body').on('click', '.close-button', function (e){
               e.preventDefault()
               $('html').removeClass('gallery-active');
               $('.photo-slider').children().remove()
               $("#detail-page").fadeOut('fast')
-              setSlider.destroy();
+              jQuery('.photo-slider').royalSlider('destroy').empty()
           });
           $.each(data.photoset.photo, function (i, set) {
             var secret = this.secret
