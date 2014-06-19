@@ -35,7 +35,14 @@ function getSet() {
               keyboardNavEnabled: true,
               controlNavigation: 'thumbnails',
               imageScaleMode: "fit"
-          }).data('royalSlider');
+          });
+          var sliderInstance = setSlider.data('royalSlider');
+          var slideCountEl = $('<span class="photo-count"></span>').appendTo( $("#detail-page-menu > h3") );
+          function updCount() {
+            slideCountEl.html( (sliderInstance.currSlideId+1) + ' / ' + sliderInstance.numSlides );
+          }
+          sliderInstance.ev.on('rsAfterSlideChange', updCount);
+          updCount();
         }
     });
   });
