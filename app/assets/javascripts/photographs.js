@@ -3,6 +3,8 @@ function getSet() {
   $('body').on('click', '.photo-set', function (e){
     e.preventDefault();
     $('html').addClass('gallery-active');
+    $('#detail-page-menu h3').text($(this).attr('data-photo-set-name'))
+    
     var apiKey = 'c46c24442f27e0dfb28c6a6982ca6b4b'
     var userId = '124300310@N08'
     var setId = $(this).attr('data-photo-set-id')
@@ -60,19 +62,13 @@ $(document).ready(function(){
       success: function (data) {
           $.each(data.photosets.photoset, function (i, set) {
             var primaryPhotoUrl = "https://farm" + this.farm + ".staticflickr.com/" + this.server + "/" + this.primary + "_" + this.secret + "_b.jpg"
-            var html = '<li data-photo-set-id="'+ set.id +'" class="photo-set"><h2>'+ set.title._content +'</h2><a href="#"><img class="set-cover" src="' + primaryPhotoUrl + '"/></a></li>'
+            var html = '<li data-photo-set-name="' + set.title._content + '"data-photo-set-id="'+ set.id +'" class="photo-set"><h2>'+ set.title._content +'</h2><a href="#"><img class="set-cover" src="' + primaryPhotoUrl + '"/></a></li>'
             $('#photo-sets').append(html);
           });
           getSet();
       }
   });
-
-
-
 });
-
-/// WHEN I LINK TO THE SPECIFIC SET PAGE: 
-///   first i need to create the set-page url out of the collectionTree data. Then I need to pass it, maybe in a hidden form, to the set-page controller params in an instance variable. Lastly I need to store that instance variable in a my js url vairiable for the flickr api call on the set-page script.
 
 
 //  full screen mode 
