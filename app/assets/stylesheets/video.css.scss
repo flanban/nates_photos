@@ -1,6 +1,7 @@
 ul#thumbs {
   max-width:1024px;
-  li {
+  margin:auto;
+  li.video-entry {
     margin-bottom:24px;
     //height:100%;
     width:50%;
@@ -12,9 +13,6 @@ ul#thumbs {
     }
     > div {
       position: relative;
-//      width: 40%;
-//      height: 100%;
-//      left: 60%;
       a {
         display:block;
         position:relative;

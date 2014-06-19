@@ -1,3 +1,9 @@
+function hideDetailPage() {
+  $('html').removeClass('gallery-active');
+  $('.photo-slider').children().remove()
+  $("#detail-page").fadeOut('fast')
+  jQuery('.photo-slider').royalSlider('destroy').empty()
+}
 function getSet() {
   $('body').on('click', '.photo-set', function (e){
     e.preventDefault();
@@ -15,11 +21,8 @@ function getSet() {
         jsonp: 'jsoncallback',
         success: function (data) {
           $('body').on('click', '.close-button', function (e){
-              e.preventDefault()
-              $('html').removeClass('gallery-active');
-              $('.photo-slider').children().remove()
-              $("#detail-page").fadeOut('fast')
-              jQuery('.photo-slider').royalSlider('destroy').empty()
+              e.preventDefault();
+              hideDetailPage();
           });
           $.each(data.photoset.photo, function (i, set) {
             var secret = this.secret

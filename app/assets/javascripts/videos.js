@@ -1,3 +1,4 @@
+
 // Change this to your username to load in your clips
 //var vimeoUserName = 'user2488391';
 var webAlbum = '2887945';
@@ -31,18 +32,34 @@ function showThumbs(videos) {
     
     var a = document.createElement('a');
     a.setAttribute('href', videos[i].url);
+    a.className = a.className + "video-title"
     a.appendChild(document.createTextNode(videos[i].title));
 
     var textHolder = document.createElement('div');
     textHolder.appendChild(a);
     
     var li = document.createElement('li');
-    li.className = li.className + "clearfix"
+    li.className = li.className + "clearfix video-entry"
     li.appendChild(thumb);
     li.appendChild(textHolder);
     thumbs.appendChild(li);
   }
+  $('body').on('click', '.video-title', function (e){
+    e.preventDefault()
+    $('#detail-page').fadeIn();
+  });
+  $('body').on('click', '.close-button', function (e){
+    e.preventDefault()
+    $('#detail-page').fadeOut()
+  });
 }
 
 // Call our init function when the page loads
 window.onload = init;
+$(document).ready(function(){
+
+  $('body').on('click', '.video-entry > .video-title > a', function (e){
+    e.preventDefault()
+    alert(1)
+  });
+});  

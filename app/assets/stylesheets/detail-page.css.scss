@@ -11,3 +11,13 @@
     background-image: asset_url('dark-noise.gif')!important;
   }
 }
+#detail-page.video-page {
+  height:100%;
+  width:100%;
+  //position:absolute;
+  top:0;
+  left:0;
+  position:fixed;
+  z-index:40;
+  background-image: asset_url('dark-noise.gif');
+}
