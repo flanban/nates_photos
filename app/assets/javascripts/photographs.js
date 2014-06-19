@@ -40,10 +40,24 @@ function getSet() {
     });
   });
 }
+//  full screen mode 
+function enter_full_screen(){
+    elem    = $('#detail-page')[0];
+    calls   = ['requestFullScreen','webkitRequestFullScreen','mozRequestFullScreen'];
+
+    for(var i = 0; i < calls.length; i++){
+        if(elem[calls[i]]){
+            elem[calls[i]]();
+            return;
+        }
+    }
+}
+$( ".fullscreen" ).click(function() {
+  enter_full_screen();
+});
 
 $(document).ready(function(){
-
-  
+  // populate sets and photos
   var apiKey = 'c46c24442f27e0dfb28c6a6982ca6b4b'
   var collectionID = '72157644814677364'
   var userId = '124300310@N08'
@@ -65,24 +79,19 @@ $(document).ready(function(){
           getSet();
       }
   });
+  
+  
+
+});
+$(window).bind("load", function() {
+  //set aspect ratio
+  var setPhoto = $('.photo-set')
+  var photoSetWidth = setPhoto.width()
+  var aspectRatio = 3.2
+  var photoSetHeight = photoSetWidth / aspectRatio
+  $('.photo-set').height(photoSetHeight)
 });
 
-
-//  full screen mode 
-function enter_full_screen(){
-    elem    = $('#detail-page')[0];
-    calls   = ['requestFullScreen','webkitRequestFullScreen','mozRequestFullScreen'];
-
-    for(var i = 0; i < calls.length; i++){
-        if(elem[calls[i]]){
-            elem[calls[i]]();
-            return;
-        }
-    }
-}
-$( ".fullscreen" ).click(function() {
-  enter_full_screen();
-});
 
 
 
