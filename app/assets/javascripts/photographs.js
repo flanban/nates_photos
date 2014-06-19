@@ -12,22 +12,29 @@ function getSet() {
         dataType: 'jsonp',
         jsonp: 'jsoncallback',
         success: function (data) {
-            $.each(data.photoset.photo, function (i, set) {
-              var secret = this.secret
-              var farmId = '2'
-              var serverId = this.server
-              var photoId = this.id
-              var photoUrl = 'https://farm' + farmId + '.staticflickr.com/' + serverId + '/' + photoId + '_' + secret + '.jpg'
-              var html = '<img class="set-photo" src="' + photoUrl + '"/>'
-              $('#detail-page').fadeIn();
-              $('.photo-slider').append(html);
-              $(".photo-slider").royalSlider({
-                  keyboardNavEnabled: true,
-                  controlNavigation: 'thumbnails'
 
-              });
-            });
-            
+          
+          $('body').on('click', '.close-button', function (e){
+              e.preventDefault()
+              $('.photo-slider').children().remove()
+              $("#detail-page").fadeOut('fast')
+              setSlider.destroy();
+          });
+          $.each(data.photoset.photo, function (i, set) {
+            var secret = this.secret
+            var farmId = '2'
+            var serverId = this.server
+            var photoId = this.id
+            var photoUrl = 'https://farm' + farmId + '.staticflickr.com/' + serverId + '/' + photoId + '_' + secret + '_b.jpg'
+            var html = '<img class="set-photo" src="' + photoUrl + '"/>'
+            $('#detail-page').fadeIn();
+            $('.photo-slider').append(html);
+          });
+          var setSlider = $(".photo-slider").royalSlider({
+              keyboardNavEnabled: true,
+              controlNavigation: 'thumbnails',
+              imageScaleMode: "fit"
+          }).data('royalSlider');
         }
     });
   });
