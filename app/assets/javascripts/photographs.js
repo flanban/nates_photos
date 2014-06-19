@@ -90,6 +90,13 @@ $(window).bind("load", function() {
   var aspectRatio = 3.2
   var photoSetHeight = photoSetWidth / aspectRatio
   $('.photo-set').height(photoSetHeight)
+  
+  // vertically center images
+  $('.photo-set > a > img').each(function(i, obj) {
+    photoSetImageHeight = $(this).height()
+    setPhotoOffset = photoSetImageHeight / 2
+    $(this).css('margin-top',-setPhotoOffset)
+  });
 });
 
 
