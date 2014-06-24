@@ -3,7 +3,9 @@
 //var vimeoUserName = 'user2488391';
 var webAlbum = '2887945';
 
-
+$(document).ready(function(){
+  $('#cinematography-page .detail-type').text('cinematography')
+});
 // Tell Vimeo what function to call
 var callback = 'showThumbs';
 
