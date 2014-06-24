@@ -20,4 +20,10 @@
   position:fixed;
   z-index:40;
   background-image: asset_url('dark-noise.gif');
+  iframe {
+    margin: auto;
+    width: 720px;
+    display: block;
+    margin-top: 100px;
+  }
 }

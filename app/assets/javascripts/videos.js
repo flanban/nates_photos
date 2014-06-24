@@ -17,6 +17,10 @@ function init() {
   js.setAttribute('src', url);
   document.getElementsByTagName('head').item(0).appendChild(js);
 }
+function hideVideoDetailPage() {
+  $('#video-player-wrapper').children().remove()
+  $("#detail-page").fadeOut('fast')
+}
 
 // This function goes through the clips and puts them on the page
 function showThumbs(videos) {
@@ -31,6 +35,8 @@ function showThumbs(videos) {
     thumb.setAttribute('data-video-id', videos[i].id);
     
     var a = document.createElement('a');
+    a.setAttribute('data-video-id', videos[i].id);
+    a.setAttribute('data-video-title', videos[i].title);
     a.setAttribute('href', videos[i].url);
     a.className = a.className + "video-title"
     a.appendChild(document.createTextNode(videos[i].title));
@@ -44,22 +50,22 @@ function showThumbs(videos) {
     li.appendChild(textHolder);
     thumbs.appendChild(li);
   }
+  // load the video player view
   $('body').on('click', '.video-title', function (e){
     e.preventDefault()
+  //set video url
+     var videoId = $(this).attr('data-video-id')
+     var url = '<iframe src="//player.vimeo.com/video/' + videoId + '" width="720" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
+    $('#video-player-wrapper').append(url)
+    $('#detail-page-menu h3').text($(this).attr('data-video-title'))
     $('#detail-page').fadeIn();
   });
   $('body').on('click', '.close-button', function (e){
     e.preventDefault()
-    $('#detail-page').fadeOut()
+    $('#detail-page').fadeOut();
+    hideVideoDetailPage();
   });
 }
 
 // Call our init function when the page loads
 window.onload = init;
-$(document).ready(function(){
-
-  $('body').on('click', '.video-entry > .video-title > a', function (e){
-    e.preventDefault()
-    alert(1)
-  });
-});  
