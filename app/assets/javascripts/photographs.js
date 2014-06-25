@@ -39,7 +39,13 @@ function getSet() {
               controlNavigation: 'thumbnails',
               imageScaleMode: "fit",
               imageScalePadding: 50,
-              slidesSpacing: 0
+              slidesSpacing: 0,
+              controlsInside: false,
+              fullscreen: {
+                // fullscreen options go gere
+                enabled: true,
+                nativeFS: true
+              }
           });
           var sliderInstance = setSlider.data('royalSlider');
           var slideCountEl = $('<span class="photo-count"></span>').appendTo( $("#detail-page-menu > h3") );
@@ -48,25 +54,15 @@ function getSet() {
           }
           sliderInstance.ev.on('rsAfterSlideChange', updCount);
           updCount();
+          $( ".rsFullscreenIcn" ).click(function() {
+            //$('body').addClass('fullscreen-active')
+          });
         }
     });
   });
 }
-//  full screen mode 
-function enter_full_screen(){
-    elem    = $('#detail-page')[0];
-    calls   = ['requestFullScreen','webkitRequestFullScreen','mozRequestFullScreen'];
 
-    for(var i = 0; i < calls.length; i++){
-        if(elem[calls[i]]){
-            elem[calls[i]]();
-            return;
-        }
-    }
-}
-$( ".fullscreen" ).click(function() {
-  enter_full_screen();
-});
+
 
 $(document).ready(function(){
   // populate sets and photos
