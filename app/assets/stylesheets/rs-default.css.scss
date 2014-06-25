@@ -351,14 +351,11 @@
 	height: 32px;
 
 	background: asset_url('rs-default.png') 0 0;
-	background-color: #000;
-	background-color: rgba(0,0,0,0.75);
-	*background-color: #000;
-	border-radius: 2px;
-
+	background-color: transparent;
+  opacity:.75;
 }
 .rsDefault .rsFullscreenIcn:hover {
-	background-color: rgba(0,0,0,0.9);
+
 }
 .rsDefault.rsFullscreen .rsFullscreenIcn {
 	background-position: -32px 0;
