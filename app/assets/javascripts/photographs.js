@@ -95,7 +95,7 @@ $(window).bind("load", function() {
   //set aspect ratio
   var setPhoto = $('.photo-set')
   var photoSetWidth = setPhoto.width()
-  var aspectRatio = 3.2
+  var aspectRatio = 3.8
   var photoSetHeight = photoSetWidth / aspectRatio
   $('.photo-set').height(photoSetHeight)
   
