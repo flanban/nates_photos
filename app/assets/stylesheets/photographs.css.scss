@@ -19,7 +19,11 @@ body.fullscreen-active {
     -moz-transition: opacity .25s ease-in-out;
     -webkit-transition: opacity .25s ease-in-out;
     overflow:hidden;
-
+    &:hover {
+      > a {
+        opacity:1;
+      }
+    }
     > h2 {
       cursor:pointer;
       text-align:center;
@@ -28,8 +32,7 @@ body.fullscreen-active {
       left:50%;
       margin-left:-360px;
       top:50%;
-      margin-top:-65px;
-      padding:40px;
+      margin-top:-25px;
       color:#FFFFFF;
       background-color:transparent;
       font-family:'CubanoRegular';
@@ -40,9 +43,7 @@ body.fullscreen-active {
     > a {
       opacity:.28;
       display:block;
-      &:hover {
-        opacity:1;
-      }
+
       > img {
         width:100%;
         display:block;
