@@ -13,7 +13,7 @@ function getSet() {
     var apiKey = 'c46c24442f27e0dfb28c6a6982ca6b4b'
     var userId = '124300310@N08'
     var setId = $(this).attr('data-photo-set-id')
-    var apiCall = "https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&api_key="+apiKey+"&photoset_id="+setId+"&user_id="+userId+"&format=json";
+    var apiCall = "https://api.flickr.com/services/rest/?method=flickr.photosets.getPhotos&extras=url_o&api_key="+apiKey+"&photoset_id="+setId+"&user_id="+userId+"&format=json";
     $.ajax({
         url: apiCall,
         type: "GET",
@@ -23,6 +23,7 @@ function getSet() {
           $('body').on('click', '.close-button', function (e){
               e.preventDefault();
               hideDetailPage();
+              
           });
           $.each(data.photoset.photo, function (i, set) {
             var secret = this.secret
@@ -30,8 +31,9 @@ function getSet() {
             var serverId = this.server
             var photoId = this.id
             var photoUrl = 'https://farm' + farmId + '.staticflickr.com/' + serverId + '/' + photoId + '_' + secret + '_b.jpg'
+            var photoOriginalUrl = this.url_o
             var photoThumbUrl = 'https://farm' + farmId + '.staticflickr.com/' + serverId + '/' + photoId + '_' + secret + '_q.jpg'
-            var html = '<img data-rsTmb="' + photoThumbUrl + '" class="set-photo" src="' + photoUrl + '"/>'
+            var html = '<img data-rsBigImg="'+ photoOriginalUrl +'" data-rsTmb="' + photoThumbUrl + '" class="set-photo rsImg" src="' + photoUrl + '"/>'
             $('#detail-page').fadeIn();
             $('.photo-slider').append(html);
           });
@@ -45,6 +47,7 @@ function getSet() {
               },
               imageScalePadding: 50,
               slidesSpacing: 0,
+              numImagesToPreload: 3,
               controlsInside: false,
               fullscreen: {
                 // fullscreen options go gere
