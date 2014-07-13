@@ -30,7 +30,8 @@ function getSet() {
             var serverId = this.server
             var photoId = this.id
             var photoUrl = 'https://farm' + farmId + '.staticflickr.com/' + serverId + '/' + photoId + '_' + secret + '_b.jpg'
-            var html = '<img class="set-photo" src="' + photoUrl + '"/>'
+            var photoThumbUrl = 'https://farm' + farmId + '.staticflickr.com/' + serverId + '/' + photoId + '_' + secret + '_t.jpg'
+            var html = '<img data-rsTmb="' + photoThumbUrl + '" class="set-photo" src="' + photoUrl + '"/>'
             $('#detail-page').fadeIn();
             $('.photo-slider').append(html);
           });
