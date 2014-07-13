@@ -5,7 +5,23 @@
   width:100%;
   height:100%;
   overflow:scroll;
+  position: absolute;
+  top: 0;
+  left:0;
   .rsFullscreenBtn {
     right:50px;
+  }
+  .rsThumb {
+    width: 100px;
+    height: 100px;
+  }
+  .rsThumbsHor {
+    height: 100px;
+  }
+  .rsThumbsVer {
+    width: 100px;
+  }
+  .rsThumb.rsNavSelected {
+      background: rgb(0, 56, 52) !important;
   }
 }

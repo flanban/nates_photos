@@ -2,6 +2,10 @@
   padding:14px;
   height:44px;
   background-image: asset_url('dark-noise.gif');
+  position: relative;
+  left: 0;
+  top: 0;
+  z-index: 10;
   h2,h3 {
     font-family:'CubanoRegular';
     font-size:14px;
