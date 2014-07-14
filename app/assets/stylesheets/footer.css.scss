@@ -74,5 +74,11 @@
     line-height:1.4;
     margin-left:200px;
     margin-top:5px;
+    &:hover {
+      color:#fff;
+    }
+    transition: color .25s ease;
+    -moz-transition: color .25s ease;
+    -webkit-transition: color .25s ease;
   }
 }
