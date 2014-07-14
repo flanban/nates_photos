@@ -45,10 +45,13 @@ function showThumbs(videos) {
 
     var textHolder = document.createElement('div');
     textHolder.appendChild(a);
+    var thumbHolder = document.createElement('div');
+    thumbHolder.setAttribute('class','thumb-wrapper');
+    thumbHolder.appendChild(thumb);
     
     var li = document.createElement('li');
     li.className = li.className + "clearfix video-entry"
-    li.appendChild(thumb);
+    li.appendChild(thumbHolder);
     li.appendChild(textHolder);
     thumbs.appendChild(li);
   }

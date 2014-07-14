@@ -11,6 +11,10 @@ ul#thumbs {
     img {
       width:100%;
     }
+    .thumb-wrapper {
+    max-height: 268px;
+    overflow:hidden;
+    }
     > div {
       position: relative;
       a {
