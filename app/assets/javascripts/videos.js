@@ -57,7 +57,7 @@ function showThumbs(videos) {
     e.preventDefault()
   //set video url
      var videoId = $(this).attr('data-video-id')
-     var url = '<iframe src="//player.vimeo.com/video/' + videoId + '" width="720" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
+     var url = '<iframe src="//player.vimeo.com/video/' + videoId + '?badge=0&byline=1" width="720" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
     $('#video-player-wrapper').append(url)
     $('#detail-page-menu h3').text($(this).attr('data-video-title'))
     $('#detail-page').fadeIn();

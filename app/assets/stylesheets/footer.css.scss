@@ -1,0 +1,31 @@
+footer.nate-footer {
+  top:16px;
+  width:95%;
+  border-top:1px dashed rgba(255,255,255,.2);
+  clear:both;
+  height:200px;
+  margin:auto;
+  padding-left:20px;
+  position:relative;
+  * {
+    display:inline-block;
+  }
+  h2 {
+    padding-top:20px;
+    text-align:center;
+    font-family:'cubano';
+    color:rgba(255,255,255,.6);
+    font-size:20px;
+    margin-right:40px;
+  }
+  ul {
+    text-align:center;
+    color:#fff;
+    li {
+      padding:10px 0 0 0;
+      font-family:'Lato';
+      font-weight:300;
+      margin-right:6px;
+    }
+  }
+}
