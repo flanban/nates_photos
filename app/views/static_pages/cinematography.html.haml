@@ -1,7 +1,8 @@
 - content_for :title, 'cinematography'
 
 #cinematography-page
-  %ul.clearfix#thumbs Loading videos...
+  %ul.clearfix#thumbs 
+    =image_tag('preloader-white.gif', :id => "preloader-video")
   #stats
   
   #detail-page.video-page.hidden
