@@ -1,3 +1,11 @@
+body.fullscreen-active {
+  #close-gallery {
+    display:none;
+  }
+  .rsFullscreenBtn {
+    right:0px;
+  }
+}
 .gallery {
   height:100%;
 }

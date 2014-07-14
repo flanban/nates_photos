@@ -1,3 +1,8 @@
+
+
+
+
+
 function setDetailPageHeight() {
   menuHeight = $('#detail-page-menu').outerHeight()
   detailPageHeightWithMenu = $('#detail-page').height() - menuHeight

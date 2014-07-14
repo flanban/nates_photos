@@ -62,14 +62,13 @@ function getSet() {
           }
           sliderInstance.ev.on('rsAfterSlideChange', updCount);
           updCount();
-          $( ".rsFullscreenIcn" ).click(function() {
-            //$('body').addClass('fullscreen-active')
-          });
           function increaseImageScalePadding() {
+            $('body').addClass('fullscreen-active')
             sliderInstance.st.imageScalePadding = 0;
             updateSliderSize();
           }
           function decreaseImageScalePadding() {
+            $('body').removeClass('fullscreen-active')
             sliderInstance.st.imageScalePadding = 50;
             updateSliderSize();
           }
