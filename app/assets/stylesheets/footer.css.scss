@@ -43,7 +43,7 @@
       font-family:'Lato';
       font-weight:300;
       text-transform:uppercase;
-      margin-top:4px;
+      margin-top:6px;
     }
   }
   ul {
@@ -57,6 +57,11 @@
       font-weight:300;
       font-size:12px;
       margin-right:6px;
+      a {
+        &:hover {
+          opacity:.5;
+        }
+      }
     }
   }
   p {
