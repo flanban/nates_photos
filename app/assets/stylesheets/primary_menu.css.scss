@@ -1,6 +1,6 @@
 #primary-menu {
   text-align:center;
-  margin-top:60px;
+  padding-top:60px;
   h2 {
     font-family:'CubanoRegular';
     font-size:48px;
@@ -32,15 +32,18 @@
 }
 //home page only
 body.index {
-  #primary-menu ul li a {
-    margin:170px 0;
-    padding:70px 100px;
-    transition: opacity .25s ease-in-out;
-    -moz-transition: opacity .25s ease-in-out;
-    -webkit-transition: opacity .25s ease-in-out;
+  #primary-menu {
+    height:85%;
+    ul li a {
+      margin:170px 0;
+      padding:70px 100px;
+      transition: opacity .25s ease-in-out;
+      -moz-transition: opacity .25s ease-in-out;
+      -webkit-transition: opacity .25s ease-in-out;
     
-    &:hover {
-      background:rgba(0,0,0,.1);
+      &:hover {
+        background:rgba(0,0,0,.2);
+      }
     }
   }
 }

@@ -1,5 +1,14 @@
+body.photography {
+  a#link-photo-page {
+    color:rgba(255,255,255,.5);
+  }
+}
+body.cinematography {
+  a#link-video-page {
+    color:rgba(255,255,255,.5)!important;
+  }
+}
 #footer {
-  top:16px;
   width:95%;
   border-top:1px dashed rgba(255,255,255,.2);
   clear:both;
