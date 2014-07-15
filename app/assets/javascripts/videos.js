@@ -1,6 +1,5 @@
 
-// Change this to your username to load in your clips
-//var vimeoUserName = 'user2488391';
+
 var webAlbum = '2887945';
 
 $(document).ready(function(){
@@ -55,15 +54,54 @@ function showThumbs(videos) {
     li.appendChild(thumbHolder);
     li.appendChild(textHolder);
     thumbs.appendChild(li);
+    console.log(thumbs)
+    function loadVideoGallery(videos) {
+      for (var i = 0; i < videos.length; i++) {
+        var ifr = document.createElement('iframe');
+        ifr.setAttribute('width','720px');
+        ifr.setAttribute('height','400px');
+        ifr.setAttribute('frameborder','0');
+        ifr.setAttribute('webkitallowfullscreen','');
+        ifr.setAttribute('mozallowfullscreen','');
+        ifr.setAttribute('allowfullscreen','');
+        var vimeoCall = 'http://player.vimeo.com/video/' + videos[i].id + '?portrait=0&byline=0&title=0&badge=0&color=ccc';
+        ifr.setAttribute('src', vimeoCall );
+        
+        var vidDiv = document.createElement('div');
+        vidDiv.setAttribute('class','rsContent');
+        vidDiv.appendChild(ifr)
+        
+        $('#video-slider').append(vidDiv)
+        
+        console.log(videos[i].title)
+      }
+    }
+    $("#video-slider").royalSlider({
+        keyboardNavEnabled: true,
+        imageScaleMode: "fit",
+        imageScalePadding: 50,
+        slidesSpacing: 0,
+        numImagesToPreload: 3,
+        controlsInside: false,
+    });
   }
   // load the video player view
   
   $('body').on('click', '.video-title', function (e){
-    e.preventDefault(e)
-  //set video url
+    e.preventDefault(e);
+    loadVideoGallery(videos);
+    $("#video-slider").royalSlider({
+        keyboardNavEnabled: true,
+        imageScaleMode: "fit",
+        imageScalePadding: 50,
+        slidesSpacing: 0,
+        numImagesToPreload: 3,
+        controlsInside: false,
+    });
+    //set video url
      var videoId = $(this).attr('data-video-id')
      var url = '<iframe src="http://player.vimeo.com/video/' + videoId + '?portrait=0&byline=0&title=0&badge=0&color=ccc' + 'width="720" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
-    $('#video-player-wrapper').append(url)
+   // $('#video-player-wrapper').append(url)
     $('#detail-page-menu h3').text($(this).attr('data-video-title'))
     $('#detail-page').fadeIn();
   });
@@ -77,3 +115,7 @@ function showThumbs(videos) {
 
 // Call our init function when the page loads
 window.onload = init;
+
+$(document).ready(function(){
+
+});
