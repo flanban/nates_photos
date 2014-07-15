@@ -91,7 +91,7 @@ $(document).ready(function(){
   var collectionID = '72157644814677364'
   var userId = '124300310@N08'
   var page = 1
-  var perPage = 12
+  var perPage = 500
   var apiCall = "https://api.flickr.com/services/rest/?format=json&method=flickr.photosets.getList&api_key=" + apiKey + "&page=" + page  + "&per_page=" + perPage  +  "&user_id=" + userId  + "&jsoncallback=?";
 
   $.ajax({
