@@ -39,7 +39,7 @@ function showThumbs(videos) {
     var a = document.createElement('a');
     a.setAttribute('data-video-id', videos[i].id);
     a.setAttribute('data-video-title', videos[i].title);
-    a.setAttribute('href', videos[i].url);
+    a.setAttribute('href', '/cinematography#-'+(i+1));
     a.className = a.className + "video-title"
     a.appendChild(document.createTextNode(videos[i].title));
 
@@ -64,44 +64,50 @@ function showThumbs(videos) {
         ifr.setAttribute('webkitallowfullscreen','');
         ifr.setAttribute('mozallowfullscreen','');
         ifr.setAttribute('allowfullscreen','');
-        var vimeoCall = 'http://player.vimeo.com/video/' + videos[i].id + '?portrait=0&byline=0&title=0&badge=0&color=ccc';
+        var vimeoCall = 'http://player.vimeo.com/video/' + videos[i].id + '?portrait=0&byline=0&title=0&badge=0&color=444';
         ifr.setAttribute('src', vimeoCall );
         
         var vidDiv = document.createElement('div');
         vidDiv.setAttribute('class','rsContent');
-        vidDiv.appendChild(ifr)
+        vidDiv.setAttribute('data-video-title', videos[i].title);
+        vidDiv.appendChild(ifr);
+
         
         $('#video-slider').append(vidDiv)
+
         
         console.log(videos[i].title)
       }
+      var videoSlider = $("#video-slider").royalSlider({
+          keyboardNavEnabled: true,
+          imageScaleMode: "fit",
+          slidesSpacing: 0,
+          controlsInside: false,
+          controlNavigation: 'none',
+          addActiveClass: true,
+          deeplinking: {
+            enabled: true,
+            change: true,
+            prefix: '-'
+          }
+      });
+      videoSliderInstance = videoSlider.data('royalSlider');
+      videoSliderInstance.ev.on('rsAfterSlideChange', function(event) {
+        $('#detail-page-menu h3').text($('.rsActiveSlide .rsContent').attr('data-video-title'))
+      });
+      $(document).ready(function(){
+        setTimeout(function(){
+          $('#video-page-preloader').fadeOut();
+          $('#detail-page').fadeOut();
+        }, 1);
+      });
+      
     }
-    $("#video-slider").royalSlider({
-        keyboardNavEnabled: true,
-        imageScaleMode: "fit",
-        imageScalePadding: 50,
-        slidesSpacing: 0,
-        numImagesToPreload: 3,
-        controlsInside: false,
-    });
   }
   // load the video player view
-  
-  $('body').on('click', '.video-title', function (e){
-    e.preventDefault(e);
-    loadVideoGallery(videos);
-    $("#video-slider").royalSlider({
-        keyboardNavEnabled: true,
-        imageScaleMode: "fit",
-        imageScalePadding: 50,
-        slidesSpacing: 0,
-        numImagesToPreload: 3,
-        controlsInside: false,
-    });
-    //set video url
+  $('body').on('click', '.video-title', function (){
+
      var videoId = $(this).attr('data-video-id')
-     var url = '<iframe src="http://player.vimeo.com/video/' + videoId + '?portrait=0&byline=0&title=0&badge=0&color=ccc' + 'width="720" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
-   // $('#video-player-wrapper').append(url)
     $('#detail-page-menu h3').text($(this).attr('data-video-title'))
     $('#detail-page').fadeIn();
   });
@@ -111,6 +117,7 @@ function showThumbs(videos) {
     hideVideoDetailPage();
   });
 
+  loadVideoGallery(videos);
 }
 
 // Call our init function when the page loads

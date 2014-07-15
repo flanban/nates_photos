@@ -5,6 +5,33 @@
   position:relative;
   top:0;
   left:0;
+  #video-slider {
+    position:relative;
+    height:100%;
+    width:100%;
+    .rsContent {
+      position:relative;
+      //padding-top:140px;
+      iframe {
+        position:relative;
+        top:50%;
+        margin-top:-220px;
+      }
+    }
+  }
+  #detail-page {
+    
+//    overflow:hidden;
+  }
+}
+#video-page-preloader {
+  background:#111;
+  position:absolute;
+  top:0;
+  left:0;
+  height:1000%;
+  width:100%;
+  z-index:999;
 }
 #preloader-video {
   height:20px;

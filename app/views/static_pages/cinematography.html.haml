@@ -1,10 +1,11 @@
 - content_for :title, 'cinematography'
-
+#video-page-preloader
 #cinematography-page
   %ul.clearfix#thumbs 
     =image_tag('preloader-white.gif', :id => "preloader-video")
   #stats
   
-  #detail-page.video-page.hidden
+  #detail-page.video-page
     = render "shared/detail_page_menu"
     #video-slider.rsDefault
+    
