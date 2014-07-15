@@ -2,7 +2,8 @@
   text-align:center;
   padding-top:60px;
   h2 {
-    font-family:'CubanoRegular';
+    font-family:'Lato';
+    font-weight:300;
     font-size:48px;
     color:rgba(255,255,255,0.7);
     a {
@@ -14,16 +15,19 @@
     li {
       display:inline-block;
       a {
-        opacity:.7;
+        opacity:.9;
         display:block;
         font-family:'Lato';
         font-size:10px;
         text-transform:uppercase;
         padding:10px 20px;
+        letter-spacing:1px;
         &:hover {
           opacity:1;
+          background:rgba(0,0,0,.8);
         }
         &.active {
+          opacity:.7;
           background:rgba(0,0,0,.8);
         }
       }
@@ -37,6 +41,8 @@ body.index {
     ul li a {
       margin:170px 0;
       padding:70px 100px;
+      font-size:15px;
+      letter-spacing:1px;
       transition: opacity .25s ease-in-out;
       -moz-transition: opacity .25s ease-in-out;
       -webkit-transition: opacity .25s ease-in-out;
