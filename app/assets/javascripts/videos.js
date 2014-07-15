@@ -36,17 +36,19 @@ function showThumbs(videos) {
     thumb.setAttribute('title', videos[i].title);
     thumb.setAttribute('data-video-id', videos[i].id);
     
+    
     var a = document.createElement('a');
     a.setAttribute('data-video-id', videos[i].id);
     a.setAttribute('data-video-title', videos[i].title);
     a.setAttribute('href', '/cinematography#-'+(i+1));
-    a.className = a.className + "video-title"
+    a.className = a.className + "video-title video-link"
     a.appendChild(document.createTextNode(videos[i].title));
 
     var textHolder = document.createElement('div');
     textHolder.appendChild(a);
-    var thumbHolder = document.createElement('div');
-    thumbHolder.setAttribute('class','thumb-wrapper');
+    var thumbHolder = document.createElement('a');
+    thumbHolder.setAttribute('class','thumb-wrapper video-link');
+    thumbHolder.setAttribute('href', '/cinematography#-'+(i+1));
     thumbHolder.appendChild(thumb);
     
     var li = document.createElement('li');
@@ -105,7 +107,7 @@ function showThumbs(videos) {
     }
   }
   // load the video player view
-  $('body').on('click', '.video-title', function (){
+  $('body').on('click', '.video-link', function (){
 
      var videoId = $(this).attr('data-video-id')
     $('#detail-page-menu h3').text($(this).attr('data-video-title'))
