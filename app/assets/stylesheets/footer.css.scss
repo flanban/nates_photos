@@ -58,7 +58,7 @@ body.cinematography {
         margin-top:6px;
       }
     }
-    ul {
+    ul.contact-links {
       //text-align:center;
       color:rgba(255,255,255,.5);
       float:left;
@@ -78,13 +78,14 @@ body.cinematography {
     }
     .personal-links {
       float:right;
-      width:300px;
+      width:230px;
       font-family:'Lato';
       font-weight:300;
       font-size:13px;
       color:rgba(255,255,255,.5);
       line-height:1.4;
-
+      position:relative;
+      top:-10px;
       &:hover {
         color:#fff;
       }
@@ -93,6 +94,24 @@ body.cinematography {
       -webkit-transition: color .25s ease;
       li {
         display:inline-block;
+        padding:9px 0 5px 0;
+        font-family:'Lato';
+        letter-spacing:1px;
+        font-weight:300;
+        font-size:12px;
+        margin-right:8px;
+        a {
+          img {
+            height:20px;
+            opacity:.7;
+            transition: opacity .25s ease;
+            -moz-transition: opacity .25s ease;
+            -webkit-transition: opacity .25s ease;
+            &:hover {
+              opacity:1;
+            }
+          }
+        }
       }
     }
   }
