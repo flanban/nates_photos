@@ -4,8 +4,9 @@
 var webAlbum = '2887945';
 
 $(document).ready(function(){
-  $('#cinematography-page .detail-type').text('cinematography')
+  $('#cinematography-page .detail-type').text('cinematography').attr('href','/cinematography');
 });
+
 // Tell Vimeo what function to call
 var callback = 'showThumbs';
 
@@ -56,8 +57,9 @@ function showThumbs(videos) {
     thumbs.appendChild(li);
   }
   // load the video player view
+  
   $('body').on('click', '.video-title', function (e){
-    e.preventDefault()
+    e.preventDefault(e)
   //set video url
      var videoId = $(this).attr('data-video-id')
      var url = '<iframe src="http://player.vimeo.com/video/' + videoId + '?portrait=0&byline=0&title=0&badge=0&color=ccc' + 'width="720" height="400" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>'
@@ -70,6 +72,7 @@ function showThumbs(videos) {
     $('#detail-page').fadeOut();
     hideVideoDetailPage();
   });
+
 }
 
 // Call our init function when the page loads
