@@ -2,12 +2,12 @@ ul#thumbs {
   max-width:1024px;
   margin:auto;
   li.video-entry {
-    margin-bottom:24px;
+    //margin-bottom:24px;
     //height:100%;
     width:50%;
     //display:inline-block;
     float:left;
-    padding:20px;
+    position:relative;
     img {
       width:100%;
     }
@@ -17,7 +17,10 @@ ul#thumbs {
     display:block;
     }
     > div {
-      position: relative;
+      position: absolute;
+      top:0%;
+      width:90%;
+      margin:auto;
       a {
         height:60px;
         max-width:280px;

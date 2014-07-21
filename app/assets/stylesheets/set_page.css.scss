@@ -5,6 +5,7 @@ body.fullscreen-active {
   .rsFullscreenBtn {
     right:0px;
   }
+  .rsImg {max-width:none;}
 }
 .gallery {
   height:100%;
@@ -16,6 +17,9 @@ body.fullscreen-active {
   position: absolute;
   top: 0;
   left:0;
+  .rsImg {
+    max-width:1600px;
+  }
   .rsFullscreenBtn {
     right:50px;
   }
