@@ -37,18 +37,29 @@
 //home page only
 body.index {
   #primary-menu {
-    height:85%;
-    ul li a {
-      margin:170px 0;
-      padding:70px 100px;
-      font-size:15px;
-      letter-spacing:1px;
-      transition: opacity .25s ease-in-out;
-      -moz-transition: opacity .25s ease-in-out;
-      -webkit-transition: opacity .25s ease-in-out;
-    
-      &:hover {
-        background:rgba(0,0,0,.2);
+    height:98%;
+    ul li {
+      white-space-collapsing:discard;
+      &:first-child {
+        a {
+          border-right :1px solid #fff;
+          &:hover {
+            border-right :1px solid #aaa;
+          }
+        }
+      }
+
+      a {
+        margin:170px 0;
+        padding:70px 100px;
+        font-size:15px;
+        letter-spacing:1px;
+        transition: opacity .25s ease-in-out;
+        -moz-transition: opacity .25s ease-in-out;
+        -webkit-transition: opacity .25s ease-in-out;
+        &:hover {
+          background:rgba(0,0,0,.2);
+        }
       }
     }
   }

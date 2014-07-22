@@ -121,10 +121,18 @@ function showThumbs(videos) {
 
   loadVideoGallery(videos);
 }
-
+$(document).ajaxSuccess(function() {
+  alert(1)
+});
 // Call our init function when the page loads
 window.onload = init;
-
 $(document).ready(function(){
 
+
+  videoTitle = $(".video-title");
+  videoTitleMargin = videoTitle.height()/2;
+  //alert(videoTitleMargin)
+  $.each( $(".video-title"), function() {
+    alert(1)
+  });
 });
