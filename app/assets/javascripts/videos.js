@@ -1,4 +1,7 @@
-
+function stopVideo() {
+  activeSlide = $('.rsActiveSlide');
+  activeSlide.html(activeSlide.html());
+}
 
 var webAlbum = '2887945';
 
@@ -66,7 +69,7 @@ function showThumbs(videos) {
         ifr.setAttribute('webkitallowfullscreen','');
         ifr.setAttribute('mozallowfullscreen','');
         ifr.setAttribute('allowfullscreen','');
-        var vimeoCall = 'http://player.vimeo.com/video/' + videos[i].id + '?portrait=0&byline=0&title=0&badge=0&color=444';
+        var vimeoCall = 'http://player.vimeo.com/video/' + videos[i].id + '?portrait=0&byline=0&title=0&badge=0&color=444?api=1&player_id=vimeoplayer';
         ifr.setAttribute('src', vimeoCall );
         
         var vidDiv = document.createElement('div');
@@ -93,9 +96,12 @@ function showThumbs(videos) {
             prefix: '-'
           }
       });
-      videoSliderInstance = videoSlider.data('royalSlider');
+      var videoSliderInstance = videoSlider.data('royalSlider');
       videoSliderInstance.ev.on('rsAfterSlideChange', function(event) {
-        $('#detail-page-menu h3').text($('.rsActiveSlide .rsContent').attr('data-video-title'))
+        $('#detail-page-menu h3').text($('.rsActiveSlide .rsContent').attr('data-video-title'));
+      });
+      $('body').on('click', '.video-link', function (){
+        videoSliderInstance.updateSliderSize();
       });
       $(document).ready(function(){
         setTimeout(function(){
@@ -108,13 +114,15 @@ function showThumbs(videos) {
   }
   // load the video player view
   $('body').on('click', '.video-link', function (){
-
-     var videoId = $(this).attr('data-video-id')
+    //var videoSliderInstance.updateSliderSize();
+    videoId = $(this).attr('data-video-id')
     $('#detail-page-menu h3').text($(this).attr('data-video-title'))
     $('#detail-page').fadeIn();
   });
+  // close the player
   $('body').on('click', '.close-button', function (e){
-    e.preventDefault()
+    e.preventDefault();
+    stopVideo();
     $('#detail-page').fadeOut();
     hideVideoDetailPage();
   });
