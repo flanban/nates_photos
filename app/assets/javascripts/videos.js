@@ -90,6 +90,7 @@ function showThumbs(videos) {
           controlsInside: false,
           controlNavigation: 'none',
           addActiveClass: true,
+          transitionType: 'fade',
           deeplinking: {
             enabled: true,
             change: true,
