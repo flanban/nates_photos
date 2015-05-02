@@ -104,6 +104,7 @@ $(document).ready(function(){
             $('#photo-sets').append(html);
           });
           getSet();
+          $('#preloader-video').fadeOut();
       }
   });
   
